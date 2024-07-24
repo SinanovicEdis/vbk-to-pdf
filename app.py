@@ -4,7 +4,7 @@ import time
 def capture_page():
     """Capture the specific area of the screen where the page is displayed."""
     # Coordinates of the top-left corner and the width and height of the capture area
-    x, y, width, height = 90, 86, 1500, 888  # Adjust these values based on your needs
+    x, y, width, height = 90, 86, 1500, 888  # Adjust these values based on your needs or remove it to capture the entire screen
     image = pyautogui.screenshot(region=(x, y, width, height))
     # Convert the image to RGB (required for saving to PDF)
     image = image.convert('RGB')
@@ -26,7 +26,7 @@ def main(total_pages):
         if page_number < total_pages:
             go_to_next_page()
             time.sleep(1)  # Adjust delay as necessary for page loading
-            
+
     # Save all captured images as a PDF
     if images:
         images[0].save('output.pdf', save_all=True, append_images=images[1:])
